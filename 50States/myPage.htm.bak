@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<title>Name the 50 US States!</title>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css">
+	</head>
+	<body>
+		<script type="text/javascript">
+			//var states = ["Alabama", "Alaska"];	
+			var correct = [];
+			var states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennesse", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" ];
+			
+			var sToday;
+			var sh;
+			var sm;
+			var ss;
+
+                        function startTimer(){
+                                document.getElementById("correctstatesid").innerHTML = "Correct States: ";
+                                var liList = "";
+                                for(i = 0; i < 50; i++){
+                                        liList = liList + "<li> ... </li>";
+                                }
+                                document.getElementById("statelist").innerHTML = "<ol>" + liList + "</ol>";
+                                //myVar = window.setTimeout(announce, 300000);
+                                //alert("passed This");
+                                var sToday = new Date();
+                                var sh = sToday.getHours();
+                                var sm = sToday.getMinutes();
+                                var ss = sToday.getSeocnds();
+                                stime();
+                        }
+
+			function checkTime(i){
+				if(i < 10){i = "0" + i};
+				return i;
+			}
+			function stime(){
+				alert("I'm in!");
+				var nToday = new Date();
+				var nh = nToday.getHours();
+				var nm = nToday.getMinutes();
+				var ns = nToday.getSeocnds();
+				nh = "00";
+				nm = checkTime(nm-sm);
+				ns = checkTime(ns-ss);
+
+				document.getElementById("txt").innerHTML = nh + ":" + nm + ":" + ns;
+				var t = setTimeout(function(){stime()}, 500);
+			}
+			function checkTime(i){
+				if(i < 10){i = "0" + i);
+				return i;
+			}
+			function announce(){
+				alert("Time is out!");
+			}
+			function answer(){
+				var elemText = document.getElementById("statetext");
+				//alert("So far: " + elemText.value);
+				if(states.indexOf(elemText.value) != -1){
+					//alert("Correct!");
+					correct.push(elemText.value);
+					var index = states.indexOf(elemText.value);
+					states.splice(index, 1);
+					document.getElementById("statetext").value = '';
+					updateDisplay();
+				}
+				else{
+					//alert("Not correct");
+				}
+				if(states.length == 0){
+					alert("Congratulations! You got all 50!");
+					//window.clearTimeout(myVar);
+				}
+			}
+			function updateDisplay(){
+				var startlist = "<ol>";
+				var endlist = "</ol>";
+				var liList = "";
+				for(i = 0; i < 50; i++){
+					if(i < correct.length){
+						liList = liList + "<li>" + correct[i] + "</li>";
+					}
+					else{
+						liList = liList + "<li> ... </li>";
+					}
+				}
+				document.getElementById("statelist").innerHTML = startlist + liList + endlist;
+			}
+		</script>
+		<center style="border: 1px solid blue">
+			<img src="http://i.huffpost.com/gen/1649894/images/o-AMERICAN-FLAG-facebook.jpg" height="200" width="400">
+			<h1>Can you name the 50 US states in 5 minutes?</h1>
+		</center>
+		
+		<h3>Directions</h3>
+		<p>Enter names of the 50 states of the United States of America into the text box below. Try to do it in under five minutes!</p>
+		<div>
+			<button type=button accessKey=s onclick="startTimer()"><u>S</u>tart</button>
+		</div>
+		<div id="txt">00:00:00</div>
+		<br>
+		<div>
+			Enter a state:
+			<input type=text name=statetext id=statetext onKeyPress="answer()">
+			<button type=button accessKey=e onclick="answer()"><u>E</u>nter</button>
+		</div>
+		<br>
+		<p id="correctstatesid"></p>
+		<ol id=statelist></ol>
+	</body>
+</html>

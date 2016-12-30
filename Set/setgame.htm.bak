@@ -1,0 +1,51 @@
+<!-- Start of Program-->
+
+<html>
+	<head>
+		<title>SET</title>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css">
+		<script type="text/javascript" src="set.js"></script>
+	</head>
+	<body>
+		<center>
+			<h1>Set</h1>
+			<h4 id="headdirections">Directions:</h4>
+			<p id="directions" style="width: 500px">In the game of Set, one tries to identify <em>SETS</em> of 3 cards from 12 cards placed on the board. Each card has four attributes, and a <em>SET</em> consists of 3 cards in which each of the four attributes are the same on each card, or are all different on each card. If a <em>SET</em> can not be found using the 12 cards on the board, the player has the option to add three more cards. For a more detailed explanation, click <a href = "http://www.setgame.com/sites/default/files/instructions/SET%20INSTRUCTIONS%20-%20ENGLISH.pdf">here</a>.</p>
+			<h4 id="headscoring">Scoring:</h4>
+			<p id="scoringdirections" style="width: 500px">6 points for finding a <em>SET</em> without having to add cards. <br> 3 points for finding a <em>SET</em> after adding cards. <br> -1 points for finding an incorrect <em>SET</em>.</p>
+			<div id="sbuttondiv">
+				<button type=button accessKey=s id="sbutton">Click to <u>S</u>tart!</button>
+			</div>
+		</center>
+		<div class="row">
+			<div class"col" id="left"></div>
+			<div class="col" id="center">
+				<center>
+					<p id="message"></p>
+					<br id="toberemovedbr1"><br id="toberemovedbr2"><br id="toberemovedbr3">
+					<table id="board" style="visibility:hidden">
+					</table>
+					<br>
+					<div id="notasetdiv">
+						<button type=button accessKey=c id="notaset" style="visibility:hidden"><u>C</u>an't find a Set!</button>
+						<button type=button accessKey=d id="gameover" style="visibility:hidden"><u>D</u>eclare game over</button>
+						<button type=button accessKey=r id="tryagain" style="visibility:hidden"><u>R</u>estart</button>
+					</div>
+				</center>
+			</div>
+			<div class="col" id="right">
+				<center>
+					<h4 id="smallheading" style="visibility:hidden">Sets found:</h4>
+					<table id="organization">
+						<tr><td>
+							<table id="completedboard" style="visibility:hidden" style="display: inline-block"></table>
+						</td>
+						<td>
+							<table id="completedboardpt2" style="visibility:hidden" style="display: inline-block"></table>
+						</td></tr>
+					</table>
+				</center>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,2474 @@
+@charset "UTF-8";
+/* CSS Document */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, dialog {
+	display: block;
+}
+
+* {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+	font-family: "ProximaNova-Light";
+	src: url(../fonts/proximanova/ProximaNova-Light.otf);
+}
+
+@font-face {
+	font-family: "ProximaNova-Regular";
+	src: url(../fonts/proximanova/ProximaNova-Regular.otf);
+}
+
+@font-face {
+	font-family: "BryantPro-Medium";
+	src: url(../fonts/bryantpro/BryantPro-Medium.otf);
+}
+
+@font-face {
+	font-family: "BryantPro-Light";
+	src: url(../fonts/bryantpro/BryantPro-Light.otf);
+}
+
+::selection {
+	background-color: #928452;
+	color: #fff;
+}
+
+::-moz-selection {
+	background: none repeat scroll 0 0 #928452;
+	color: #fff;
+}
+
+body {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 75%; /* 12px */
+	line-height: 123%;
+	vertical-align: baseline;
+	background: #ececea;
+	margin: 0 auto;
+	padding: 0;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+img {
+	border: none;
+}
+
+ul li {
+	list-style: none outside none;
+}
+
+.clear {
+	clear: both;
+}
+
+.center {
+	text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 999px;
+}
+
+/* ===== HEADER STYLES =====*/
+
+.logo {
+	display: block;
+	float: left;
+	height: 43px;
+	width: 39px;
+	margin: 26px 0 0 20px;
+}
+
+.logo img {
+	width: 100%;
+	height: 100%;
+}
+
+.logoName {
+	display: block;
+	float: left;
+	clear: right;
+}
+
+#home .logoDesc {
+	display: block;
+	float: left;
+	margin: 34px 0 0 0;
+	padding-left: 12px;
+}
+
+#home .logoDesc li {
+	float: none;
+	margin: 0;
+}
+
+#work .logoDesc {
+	display: block;
+	float: left;
+	margin: 34px 0 0 0;
+	padding-left: 12px;
+}
+
+#work .logoDesc li {
+	float: none;
+	margin: 0;
+}
+
+#logoName {
+	font-family: "BryantPro-Medium", Arial, Helvetica, sans-serif;
+	font-size: 1.05em;
+	font-weight: 500;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+}
+
+#logoTitle {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: oblique;
+	color: #666666;
+	font-size: 1.05em;
+	line-height: 120%;
+}
+
+.logoDesc p {
+	margin: 0;
+}
+
+header[role="banner"] .active {
+	color: #928452;
+	font-weight: 500;
+}
+
+header[role="banner"] {
+	overflow: hidden;
+	padding: 0 0 28px 0;
+}
+
+header[role="banner"] ul {
+	display: block;
+	float: right;
+	overflow: hidden;
+}
+
+header[role="banner"] li {
+	font-family: "BryantPro-Medium", Arial, Helvetica, sans-serif;
+	display: block;
+	float: left;
+	margin: 40px 20px 0 30px;
+}
+
+/*header[role="banner"] li:first-child {
+    margin-left: 0px;
+}*/
+
+header[role="banner"] li a {
+	display: block;
+	font-family: "BryantPro-Medium", Arial, Helvetica, sans-serif;
+	font-size: 1.05em;
+	font-weight: 500;
+	letter-spacing: .2em;
+	color: #666666;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+header[role="banner"] li a:hover {
+	color: #928452;
+	opacity: .7;
+	-webkit-opacity: .7;
+}
+
+/* ===== CASES STYLES ====== */
+
+#cases {
+	padding: 90px 0 95px;
+}
+
+#cases ul {
+	overflow: hidden;
+}
+
+#cases li {
+	display: block;
+}
+
+.span3 {
+	float: left;
+	width: 33.333333%;
+}
+
+#cases a {
+	display: block;
+	position: relative;
+}
+
+#cases a img {
+	display: block;
+	height: auto;
+	width: 100%;
+	position: relative;
+}
+
+#cases a div {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	top: 0;
+}
+
+#cases a strong {
+	color: #928452;
+	display: block;
+	margin-top: 82%;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.05em;
+	font-weight: 500;
+	letter-spacing: .2em;
+	line-height: 150%;
+}
+
+#cases a span {
+	color: #666666;
+	display: block;
+	font-style: oblique;
+	letter-spacing: .1em;
+}
+
+/* CASES ROLLOVERS */
+#cases a:hover div.calibreThumb {
+	background: url(../images/calibre_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.trihondaThumb {
+	background: url(../images/trihonda_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.lgThumb {
+	background: url(../images/lg_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.cartierThumb {
+	background: url(../images/cartier_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.fruitshootThumb {
+	background: url(../images/fruitshoot_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.egaliteThumb {
+	background: url(../images/egalite_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.progressoThumb {
+	background: url(../images/progresso_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.lancomeThumb {
+	background: url(../images/lancome_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.puffsThumb {
+	background: url(../images/puffs_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.whilThumb {
+	background: url(../images/whil_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.lgsupportThumb {
+	background: url(../images/lgsupport_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+#cases a:hover div.hokusaiThumb {
+	background: url(../images/hokusai_thumb.png) #fff no-repeat; 
+	transition: all 1s ease 0s;
+	-webkit-transition: all 1s ease 0s;
+}
+
+
+/* ===== HOME FOOTER STYLES ===== */
+
+.wrapBorder {
+	border-top: 1px solid #cccccc;
+}
+
+footer[role="footer"] {
+	font-family: "BryantPro-Medium", Arial, Helvetica, sans-serif;
+	color: #666666;
+	font-size: .875em;
+	font-weight: 500;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	overflow: hidden;
+	text-align: center;
+	padding: 22px 0 17px;
+}
+
+footer[role="footer"] ul {
+	overflow: hidden;
+}
+
+footer[role="footer"] li {
+	display: inline-block;
+	padding: 0 2%;
+}
+
+footer[role="footer"] a {
+	color: #666666;
+}
+
+footer[role="footer"] a:hover {
+	color: #928452;
+	opacity: .7; 
+}
+
+/* ===== WORK STYLES ===== */
+
+.title {
+	overflow: hidden;
+}
+
+.title h1 {
+	margin-top: 20px;
+}
+
+.titleBg {
+	padding-top: 50px;
+}
+
+.negativeMargin {
+	margin-bottom: -125px;
+}
+
+.titleBg h1 {
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	font-family: "ProximaNova-Light", Arial, Helvetica, sans-serif;
+	font-size: 4em;
+	font-weight: normal;
+	line-height: 150%;
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+
+#case figure img {
+	display: block;
+	width: 100%;
+	margin-top: 20px;
+}
+
+#caseCalibre .title figure {
+	margin: 50px 37.8378378% 0;
+	overflow: hidden;
+}
+
+#caseTrihonda .title figure {
+	margin: 50px 26.7177268%;
+	overflow: hidden; 
+}
+
+#caseLg .title figure {
+	margin: 2px 33.7837838%;
+	overflow: hidden; 
+}
+
+#caseCartier .mainObject {
+	margin: 20% 10.01001% 0 30.8308308%;
+	width: 38.5385385%;
+	overflow: hidden;
+	float: left;
+}
+
+#caseCartier .strayFlower {
+	margin: 27% 2% 0 0;
+	width: 14.7147147%;
+	float: left;
+}
+
+#caseFruitshoot .title figure {
+	margin: 15px 37.988% 0px;
+	overflow: hidden; 
+}
+
+#caseEgalite .title figure {
+	margin: 152px 27.6276276% 0;
+	overflow: hidden; 
+}
+
+#caseProgresso .title figure {
+	margin: 108px 34.3843844% 0;
+	overflow: hidden; 
+}
+
+#caseLancome .title figure {
+	margin: 8px 34.7347347% 0;
+	overflow: hidden; 
+}
+
+#casePuffs .title figure {
+	margin: 8px 33.7337337% 0;
+	overflow: hidden; 
+}
+
+#caseWhil .title figure {
+	margin: 124px 31.0810811% 0;
+	overflow: hidden; 
+}
+
+#caseLgsupport .title figure {
+	margin: 25px 35.1851852% 50px;
+	overflow: hidden; 
+}
+
+#caseHokusai .title figure {
+	margin: 74px 31.7817818% 10px;
+	overflow: hidden; 
+}
+
+#caseCalibre .title figure img {
+	display: block;
+	margin-top: 20px;
+	width: 100%;
+}
+
+#caseTrihonda .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseLg .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseCartier .title figure img {
+	display: block;
+	float: left;
+}
+
+#caseFruitshoot .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseEgalite .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseProgresso .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseLancome .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#casePuffs .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseWhil .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseLgsupport .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseHokusai .title figure img {
+	display: block;
+	margin-top: 29px;
+	width: 100%;
+}
+
+#caseCalibre .titleBg {
+	background: url(../images/headerbg_calibre.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseTrihonda .titleBg {
+	background: url(../images/headerbg_trihonda.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseLg .titleBg {
+	background: url(../images/headerbg_lg.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseCartier .titleBg {
+	background: url(../images/headerbg_cartier.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseFruitshoot .titleBg {
+	background: url(../images/headerbg_fruitshoot.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseEgalite .titleBg {
+	background: url(../images/headerbg_egalite.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseProgresso .titleBg {
+	background: url(../images/headerbg_progresso.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseLancome .titleBg {
+	background: url(../images/headerbg_lancome.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#casePuffs .titleBg {
+	background: url(../images/headerbg_puffs.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseWhil .titleBg {
+	background: url(../images/headerbg_whil.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseLgsupport .titleBg {
+	background: url(../images/headerbg_lgsupport.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+#caseHokusai .titleBg {
+	background: url(../images/headerbg_hokusai.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+}
+
+.wrapTop {
+	padding: 145px 0 80px;
+}
+
+.wrapTop figure {
+	padding-top: 30px;
+}
+	
+.wrapWhite {
+	background: none repeat scroll 0 0 #fff;
+}
+
+.wrapSection {
+	padding: 50px 0;
+}
+
+.wrapGrey1 {
+	background: none repeat scroll 0 0 #ececea;
+}
+
+.wrapGrey2 {
+	background: none repeat scroll 0 0 #222;
+	margin-top: -150px;
+	padding-top: 100px;
+}
+
+#case p {
+	font-size: 1.5em;
+	color: #333;
+	padding-bottom: 20px;
+}
+
+#case h2 {
+	font-family: "ProximaNova-Regular", Arial, Helvetica, sans-serif;
+	font-size: 2.25em;
+	letter-spacing: .15em;
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 5%;
+}
+
+#case h2, #case p {
+	line-height: 180%;
+	margin: 0 auto 20px;
+	max-width: 585px;
+	padding-right: 5%;
+	padding-left: 5%;
+}
+
+#case .calibreProfile {
+	width: 19.5195195%;
+	height: auto;
+	text-align: center;
+	float: left;
+	display: block;
+	padding-bottom: 45px;
+	margin: -1px 6.90690691% 0;
+	position: relative;
+}
+
+#case .calibreProfile h3 {
+	font-family: "ProximaNova-Regular", Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	color: #000;
+	letter-spacing: .15em;
+	text-transform: uppercase;
+	padding: 30px 0 5px;
+}
+
+#case .calibreProfile p {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: oblique;
+	color: #000;
+	font-size: 1.05em;
+	margin: 0;
+	padding: 0;
+	line-height: 140%;
+}
+
+#case .calibreProfile img {
+	width: 100%;
+	display: block;
+	position: relative;
+}
+
+#case .vertLine {
+	margin: 0 auto;
+	display: block;
+	clear: left;
+}
+
+#calibreGifs {
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 100px;
+	overflow: hidden;
+}
+
+#calibreGifs img {
+	display: block;
+	float: left;
+	overflow: hidden;
+}
+
+#calibreGifs img.gif {
+	margin: 0 13.5635636%;
+	width: 72.8728729%;
+	padding-top: 40px;
+}
+
+#calibreGifs img.forbesLogo {
+	margin: 0 43.6936937%;
+	width: 12.6126126%;
+}
+
+#calibreGifs img.wsjLogo {
+	margin: 0 45.695696%;
+	width: 8.60860861%;
+	padding-top: 130px;
+}
+
+#case .wrapGrey2 h2, #case .wrapGrey2 p {
+	color: #fff;
+}
+
+#caseCalibre .wrapGrey2 h2, #caseCalibre .wrapGrey3 h2, #caseCalibre .wrapGrey5 h2 {
+	padding-top: 5%;
+}
+
+.wrapGrey3 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -120px;
+	padding-top: 70px;
+}
+
+.wrapGrey3 img {
+	width: 100%;
+	display: block;
+	padding-top: 3%;
+}
+
+.wrapGrey4 {
+	background: none repeat scroll 0 0 #ECECEA;
+	margin-top: -145px;
+	padding-top: 160px;
+}
+
+.wrapGrey5 {
+	background: none repeat scroll 0 0 #222;
+	margin-top: -120px;
+	padding-top: 100px;
+}
+
+#case .wrapGrey5 h2, #case .wrapGrey5 p {
+	color: #fff;
+}
+
+#motionThumbs {
+	width: 93.5935936%;
+	margin: 0 auto;
+}
+
+.span5 {
+	width: 29.4117647%;
+	float: left;
+	margin: 1.96077% 1.96077%;
+}
+
+#motionThumbs img {
+	width: 100%;
+	display: block;
+	position: relative;
+	border-radius: 2px;
+}
+
+/* VIDEO STYLES */
+
+video {
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+
+.videoThumbs2 {
+	display: none;
+}
+
+.videoThumbs3 {
+	display: none;
+}
+
+.videoThumbs {
+	width: 93.5935936%;
+	margin: 0 auto;
+	padding: 35px 0 30px;
+}
+
+#caseCalibre .videoThumbs p {
+	font-family: "ProximaNova-Regular", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-size: .9em;
+	line-height: 150%;
+	padding: 8px 0;
+}
+
+#caseCalibre .videoThumbs img {
+	display: block;
+	height: auto;
+	position: relative;
+	width: 100%;
+	border-radius: 2px;
+	padding-bottom: 8px;
+}
+
+.span4 {
+	width: 29.4117647%;
+	float: left;
+	margin: 1.96077% 1.96077%;
+}
+
+.span4:nth-child(4), .span4:nth-child(8) {
+	clear: both;
+}
+
+#caseCalibre ul {
+	overflow: hidden;
+}
+
+#caseCalibre li {
+	display: block;
+}
+
+a.videoLink {
+	display: block;
+	float: left;
+	position: relative;
+	cursor: pointer;
+	width: 100%;
+	border: none;
+	opacity: .65;
+	-webkit-opacity: .65;
+}
+
+a.videoLink:hover {
+	opacity: 1;
+	-webkit-opacity: 1;
+}
+
+/* END VIDEO STYLES */
+
+#caseCalibre a.videoLink img.play {
+	width: 27.8409091%;
+	height: 25.984252%;
+	margin: 25% auto;
+}
+
+#caseTrihonda .wrapGrey3 {
+	margin-top: -130px;
+	padding: 40px 0;
+}
+
+#trihondaBranding .typeface img {
+	width: 48.6486486%;
+	margin: 5% 33.5335336% 5% 17.8178178%;
+}
+
+#trihondaBranding .color img {
+	width: 72.0720721%;
+	margin: 5% 13.914% 5% 14.014014%;
+}
+
+#caseTrihonda .wrapWhite {
+	padding: 90px 0;
+}
+
+.wrapGrey6 {
+	background: none repeat scroll 0 0 #424446;
+	padding: 30px 0;
+	margin-top: -140px;
+}
+
+.wrapGrey7 {
+	background: none repeat scroll 0 0 #e0e0e0;
+	padding: 30px 0;
+}
+
+#caseTrihonda .trihondaScreens img {
+	width: 90%;
+	margin: 3% 5%;
+	border-radius: 2px;
+	box-shadow: 0px 1px 2px #222;
+}
+
+#caseTrihonda .trihondaScreens {
+	padding-top: 60px;
+}
+
+#trihondaMobile {
+	padding-top: 5%;
+}
+
+#trihondaMobile .span3 {
+	width: 25%;
+	margin: 0 4.16667%;
+	padding: 5% 0;
+}
+
+#caseLg .lgThunderbolt img {
+	width: 92.1921922%;
+	margin: 0 3.90395%;
+}
+
+.wrapBeige {
+	background: none repeat scroll 0 0 #e9e4de;
+	padding: 30px 0;
+	margin-top: -120px;
+}
+
+.wrapBeige figure {
+	padding-top: 8%;
+	display: block;
+	width: 100%;
+}
+
+.lgMacbook {
+	padding: 6% 0 4%;
+}
+
+.wrapGrey8 {
+	background: none repeat scroll 0 0 #f0ece8;
+	padding: 3% 0;
+}
+
+#lgMobile .lgMobile1 {
+	display: block;
+	width: 38.7387387%;
+	margin: 12% 30.63065%;
+}
+
+#lgMobile .lgMobile2 {
+	background: none repeat scroll 0 0 #e9e4de;
+	width: 25%;
+	margin: 0 auto;
+	float: left;
+	padding: 8% 4.166667%;
+}
+
+#lgMobile .lgMobile3 {
+	padding: 10% 0;
+}
+
+#lgMobile .lgMobile4 {
+	width: 39.2392392%;
+	margin: 0 30.3803804% 4%;
+}
+
+.wrapPink {
+	background: none repeat scroll 0 0 #fbf9fa;
+	padding: 150px 0 0;
+	margin-top: -210px;
+}
+
+.wrapGrey9 {
+	background: none repeat scroll 0 0 #efefef;
+	padding: 5% 0;
+	margin-top: -32px;
+}
+
+#caseCartier .wrapGrey9 p {
+	padding: 5%;
+}
+
+#caseCartier .wrapSpace h2 {
+	padding-top: 8%;
+}
+
+#caseCartier .wrapSpace p {
+	padding-bottom: 6%;
+}
+
+#caseCartier .cartierEmail img {
+	width: 91.6916917%;
+	margin-right: 4.15415415%;
+	margin-left: 4.15415415%;
+}
+
+.wrapGrey10 {
+	background: none repeat scroll 0 0 #ded8da;
+	padding: 210px 0 60px;
+	margin-top: -140px;
+}
+
+#cartierEmails {
+	width: 100%;
+}
+
+#cartierEmails .span6 {
+	width: 23.3233%;
+	margin: 0 0.83835%;
+	float: left;
+	display: block;
+	box-shadow: 0 1px 2px #999;
+}
+
+#cartierEmails .cartierEcommerce {
+	margin-top: 14px;
+}
+
+#caseFruitshoot .wrapTop a {
+	color: #928452;
+}
+
+#caseFruitshoot .wrapTop a:hover {
+	color: #928452;
+	opacity: .7;
+	-webkit-opacity: .7;
+}
+
+.wrapPurple1 {
+	background: none repeat scroll 0 0 #706198;
+	padding: 200px 0 60px;
+	margin-top: -230px;
+}
+
+.fruitshootIpad {
+	padding-top: 7%;
+}
+
+.wrapPurple2 {
+	background: none repeat scroll 0 0 #473a65;
+	padding: 150px 0 30px;
+	margin-top: -180px;
+}
+
+#caseFruitshoot .span1 {
+	width: 13.7137137%;
+	margin: 7% 43.1431431% 4%;
+}
+
+#caseEgalite .egaliteCover {
+	width: 64.7647648%;
+	margin: 2% 17.6176%;
+}
+
+#caseEgalite .materialsH2 {
+	padding-top: 14%;
+}
+
+.wrapGrey11 {
+	margin-top: -600px;
+	background: none repeat scroll 0 0 #ececea;
+	padding: 640px 0 0;
+}
+
+#caseEgalite .egalitePostcard {
+	width: 51.5515516%;
+	margin: 0px 24.2242242% 0;
+}
+
+#caseEgalite .egaliteTshirt img {
+	padding-bottom: 20%;
+	margin-right: 10%;
+	margin-left: 10%;
+	width: 80%;
+}
+
+.wrapGrey12 {
+	margin-top: -136px;
+	padding: 140px 0 132px;
+	background: none repeat scroll 0 0 #e0e0e0;
+}
+
+.wrapGrey13 {
+	margin-top: -180px;
+	padding: 70px 0 60px;
+	background: none repeat scroll 0 0 #ececea;
+}
+
+.wrapBlue {
+	background: none repeat scroll 0 0 #0562a7;
+	margin: 0;
+	padding: 0;
+}
+
+#caseProgresso .wrapBlue img {
+	margin-top: 0;
+}
+
+.progressoMacbook {
+	padding-top: 10%;
+}
+
+.wrapGrey13 img {
+	padding: 5% 0;
+}
+
+.wrapGrey14 {
+	background: none repeat scroll 0 0 #e6e6e6;
+	margin-top: -155px;
+	padding: 220px 0 132px;
+}
+
+.wrapRed {
+	background: none repeat scroll 0 0 #ef3b3c;
+	margin-top: -300px;
+	padding: 270px 0 0;
+}
+
+#caseLancome .lancomePhone {
+	width: 38.8388388%;
+	margin: 0 30.5805806% -4px;
+}
+
+#caseLancome .lancomeDetail {
+	width: 55.0550551%;
+	margin: 0 22.022022%;
+	padding-bottom: 10%;
+}
+
+.wrapPink3 {
+	background: none repeat scroll 0 0 #c22979;
+	margin-top: -130px;
+	padding: 168px 0 100px;
+}
+
+.wrapGrey15 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -148px;
+	padding: 70px 0;
+}
+
+.wrapPurple3 {
+	background: none repeat scroll 0 0 #811748;
+	paddin 30px 0;
+}
+
+#puffsMobile .puffsMobile1 {
+	display: block;
+	width: 40.04004%;
+	margin: 12% 29.97998%;
+}
+
+#puffsMobile .puffsMobile2 {
+	background: none repeat scroll 0 0 #ac1f61;
+	width: 25%;
+	margin: 0 auto;
+	float: left;
+	padding: 8% 4.166667%;
+}
+
+#puffsMobile .puffsMobile3 {
+	padding: 10% 0;
+	width: 40.04004%;
+	margin: 0 29.97998%;
+}
+
+#casePuffs .puffsTissues1 img {
+	width: 70.970971%;
+	margin: 0 14.5145145%;
+	padding-bottom: 10%;
+}
+
+#puffsMobile .puffsTissues2 {
+	width: 33.1331331%;
+	margin: 6% 33.4334334% 10%;
+}
+
+#caseWhil .wrapTop {
+	padding: 102px 0 80px;
+}
+
+.wrapGrey16 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -136px;
+	padding: 130px 0 80px;;
+}
+
+.wrapGrey17 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -236px;
+	padding: 180px 0 80px;
+}
+
+#caseLgsupport .lgsupportIpad img {
+	width: 77.8778779%;
+	margin: 0 11.0610611%;
+}
+
+#caseLgsupport .lgsupportEmails img {
+	width: 77.4774775%;
+	margin: 2% 11.2612613%;
+}
+
+#caseLgsupport .lgsupportLast {
+	padding-top: 10%;
+}
+
+#caseLgsupport .wrapTop {
+	padding: 100px 0 80px;
+}
+
+.wrapGrey18 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -500px;
+	padding: 400px 0 80px;
+}
+
+.wrapBlue2 {
+	background: none repeat scroll 0 0 #2b3036;
+	margin-top: 0;
+	padding: 0 0 10%;
+}
+
+#caseHokusai .wrapBlue2 img {
+	margin: 0;
+	padding: 0;
+}
+
+#caseHokusai .hokusaiFirst, #caseHokusai .hokusaiPages img {
+	width: 88.0880881%;
+	margin: 2% 5.95595596%;
+}
+
+#caseHokusai .wrapTop {
+	padding-top: 105px 0 80px;
+}
+
+/* ===== WORK FOOTER STYLES ===== */
+
+.wrapCaseInfo {
+	padding: 45px 0;
+	background-color: #fff;
+}
+
+#caseInfo {
+	padding: 0;
+}
+
+#caseInfo .span2 {
+	text-align: center;
+	width: 50%;
+	display: block;
+	overflow: hidden;
+	float: left;
+}
+
+#caseInfo strong {
+	font-family: "BryantPro-Medium", Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	letter-spacing: .3em;
+	color: #333;
+	text-transform: uppercase;
+}
+
+#caseInfo p {
+	font-size: 1.5em;
+	color: #333;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	padding-top: 10px;
+}
+
+.wrapCaseNav {
+	padding: 28px 0;
+	border-top: 1px solid #c7c7be;
+	background-color: #fff;
+}
+
+.wrapCaseNav a {
+	color: 000;
+}
+
+#caseNav a:hover {
+	color: #928452;
+}
+
+#caseNav .span3 {
+	text-align: center;
+	font-style: oblique;
+	color: #999;
+	font-size: 1.2em;
+	width: 33.3333333%;
+	line-height: 130%;
+}
+
+/* ======== ABOUT STYLES ======== */
+
+#caseAbout {
+	margin-top: 5%;
+}
+
+#caseAbout .aboutContainer {
+	padding-bottom: 15%;
+}
+
+#caseAbout figure img {
+	width: 100%;
+	display: block;
+}
+
+#caseAbout .aboutInfo {
+	width: 79.0697674%;
+	margin: 0 10.4651163%;
+}
+
+#caseAbout .leftSide {
+	width: 25.8258258%;
+	float: left;
+	display: block;
+	margin-right: 9.30930931%;
+	margin-top: 7%;
+}
+
+#caseAbout .leftSide h2 {
+	font-family: "ProximaNova-Regular", Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	margin-bottom: 4%;
+	text-transform: uppercase;
+	color: #666;
+	letter-spacing: .05em;
+	line-height: 110%;
+	padding-top: 20%;
+}
+
+#caseAbout .leftSide p {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 100;
+	font-size: 1.4em;
+	color: #999;
+	line-height: 160%;
+}
+
+#caseAbout .leftSide a {
+	color: #928452;
+}
+
+#caseAbout .leftSide a:hover {
+	color: #928452;
+	opacity: .7;
+	-webkit-opacity: .7;
+}
+
+#caseAbout .aboutSocial {
+	padding-top: 14%;
+}
+
+#caseAbout .aboutSocial img {
+	margin-right: 5px;
+	width: 23.5294118%;
+}
+
+#caseAbout .rightSide {
+	width: 60%;
+	float: left;
+	display: block;
+}
+
+#caseAbout .rightSide h1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 100;
+	font-size: 3em;
+	color: #928452;
+	font-style: oblique;
+	line-height: 150%;
+	margin-bottom: 5%;
+}
+
+#caseAbout .rightSide p {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 1.6em;
+	color: #333;
+	line-height: 200%;
+	margin-bottom: 6%;
+}
+
+#caseAbout .rightSide a {
+	color: #928452;
+}
+
+#caseAbout .rightSide a:hover {
+	color: #928452;
+	opacity: .7;
+	-webkit-opacity: .7;
+}
+
+#caseAbout .profilePhoto2 {
+	display: none;
+}
+
+#caseAbout .aboutInfo2 {
+	display: none;
+}
+
+.aboutFooter {
+	display: none;
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+
+@media screen and (max-width: 999px) {
+.container {
+    padding: 0;
+    width: auto;
+}
+
+/* CASES ROLLOVERS */
+#cases a:hover div.calibreThumb {
+	background: url(../images/calibre_thumb.png) #fff no-repeat;
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.trihondaThumb {
+	background: url(../images/trihonda_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.lgThumb {
+	background: url(../images/lg_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.cartierThumb {
+	background: url(../images/cartier_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.fruitshootThumb {
+	background: url(../images/fruitshoot_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.egaliteThumb {
+	background: url(../images/egalite_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.progressoThumb {
+	background: url(../images/progresso_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.lancomeThumb {
+	background: url(../images/lancome_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.puffsThumb {
+	background: url(../images/puffs_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.whilThumb {
+	background: url(../images/whil_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.lgsupportThumb {
+	background: url(../images/lgsupport_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+#cases a:hover div.hokusaiThumb {
+	background: url(../images/hokusai_thumb.png) #fff no-repeat; 
+	background-size: 100%;
+	transition: none;
+	-webkit-transition: none;
+}
+
+.wrapTop {
+	padding: 14% 0 80px;
+}
+
+.wrapGrey9 {
+	margin-top: -26px;
+}
+
+#caseEgalite figure img {
+	width: 90%;
+	margin: 20px 5% 0 5%;
+}
+
+.wrapGrey11 {
+	margin-top: -430px;
+	padding: 460px 0 0;
+}
+
+#caseEgalite .title figure {
+	margin: 96px 27.6276276% 50px;
+	overflow: hidden; 
+}
+
+.wrapGrey14 {
+	background: none repeat scroll 0 0 #e6e6e6;
+	margin-top: -155px;
+	padding: 170px 0 132px;
+}
+
+#caseLancome .lancomeScanner img {
+	width: 95%;
+	margin-right: 2.5%;
+	margin-left: 2.5%;
+}
+
+#puffsScreenshots {
+	width: 95%;
+	margin-right: 2.5%;
+	margin-left: 2.5%;
+}
+
+.wrapPink3 {
+	background: none repeat scroll 0 0 #c22979;
+	margin-top: -124px;
+	padding: 168px 0 117px;
+}
+
+#caseWhil .wrapGrey16 figure {
+	width: 95%;
+	margin-right: 2.5%;
+	margin-left: 2.5%;
+}
+
+#caseLgsupport .title figure {
+	margin: 5px 30% 70px;
+	overflow: hidden;
+}
+
+/* ABOUT STYLES */
+
+#caseAbout {
+	margin-left: 5%;
+}
+}
+
+@media screen and (max-width: 768px) {
+.videoThumbs {
+	display: none;
+}
+
+.videoThumbs3 {
+	display: none;
+}
+
+.videoThumbs2 {
+	display: block;
+	padding: 10px 0 0;
+}
+
+.videoThumbs2 {
+	width: 93.5935936%;
+	margin: 0 auto;
+	padding: 20px 0 30px;
+}
+
+a.videoLink {
+	opacity: 0.8;
+	-webkit-opacity: 0.8;
+}
+
+#caseCalibre .videoThumbs2 p {
+	font-family: "ProximaNova-Regular", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-size: .9em;
+	line-height: 150%;
+	padding: 8px 0;
+}
+
+#caseCalibre .videoThumbs2 img {
+	display: block;
+	height: auto;
+	position: relative;
+	width: 100%;
+	border-radius: 2px;
+	padding-bottom: 8px;
+}
+}
+
+@media screen and (max-width: 760px) {
+body {
+    font-size: 75%;
+}
+
+.container {
+    padding: 0;
+}
+
+.wrap {
+    padding: 30px 0;
+}
+
+/*header[role="banner"] {
+	padding: 0 0 40px 0;
+}*/
+
+.title-blank, #cases {
+    padding: 50px 0 70px;
+}
+
+footer[role="footer"] {
+    padding: 30px 0;
+}
+
+.wrapTop {
+	padding: 15% 0 80px;
+}
+
+.wrapGrey18 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -410px;
+	padding: 300px 0 80px;
+}
+
+/* ABOUT STYLES */
+
+#caseAbout {
+	margin-left: 0;
+}
+
+#caseAbout .leftSide {
+	display: none;
+}
+
+#caseAbout .profilePhoto2 {
+	display: block;
+}
+
+#caseAbout .profilePhoto2 img {
+	width: 50%;
+	margin: 0 25% 8%;
+}
+
+#caseAbout .aboutInfo2 {
+	display: inline;
+}
+
+#caseAbout .rightSide {
+	width: 70%;
+	margin: 0 15%;
+}
+
+#caseAbout .rightSide h1 {
+	text-align: center;
+	padding-top: 3%;
+}
+
+#caseAbout .rightSide p {
+	text-align: center;
+	font-size: 1.4em;
+}
+
+#caseAbout .aboutInfo2 h2 {
+	font-family: "ProximaNova-Regular", Arial, Helvetica, sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+	color: #666;
+	font-size: 1.5em;
+	letter-spacing: .05em;
+	line-height: 150%;
+	padding-bottom: 10px;
+	padding-top: 10%;
+}
+
+#caseAbout .aboutInfo2 p {
+	margin-bottom: 0;
+}
+
+#caseAbout .aboutSocial {
+	width: 60%;
+	margin: 0 auto;
+	padding-top: 10%;
+}
+
+#caseAbout .aboutSocial img {
+	width: 20%;
+	margin: 0 6%;
+}
+
+.aboutFooter {
+	display: block;
+}
+}
+
+@media screen and (max-width: 666px) {
+body {
+	font-size: 75%;
+}
+
+.span3 {
+	width: 50%;
+	float: left;
+}
+
+/* WORK STYLES */
+#caseCalibre .title figure {
+	margin: 20px 33% 0;
+	overflow: hidden;
+}
+
+#caseTrihonda .title figure {
+	margin: 26px 20% 64px;
+	overflow: hidden;
+}
+
+#caseLg .title figure {
+	margin: -12px 28% 0;
+	overflow: hidden;
+}
+
+#caseCartier .mainObject {
+	margin: 27% 5% 0 25%;
+	width: 50%;
+	overflow: hidden;
+}
+
+#caseCartier .strayFlower {
+	margin: 39% 2% 0 0;
+	width: 16%;
+}
+
+#caseFruitshoot .title figure {
+	margin: -18px 33% 0;
+	overflow: hidden;
+}
+
+#caseEgalite .title figure {
+	margin: 95px 14% 0 20%;
+	overflow: hidden;
+}
+
+#caseProgresso .title figure {
+	margin: 63px 27.7% 0;
+	overflow: hidden;
+}
+
+#caseLancome .title figure {
+	margin: 8px 30.2% 0;
+	overflow: hidden;
+}
+
+#casePuffs .title figure {
+	margin: 8px 27.4% 0;
+	overflow: hidden;
+}
+
+#caseWhil .title figure {
+	margin: 105px 25.5% 0;
+	overflow: hidden;
+}
+
+#caseLgsupport .title figure {
+	margin: -10px 30% 62px;
+	overflow: hidden;
+}
+
+#caseHokusai .title figure {
+	margin: 32px 24% 10px;
+	overflow: hidden;
+}
+
+.wrapTop {
+	padding: 23% 0 80px;
+}
+
+#caseTrihonda .wrapWhite {
+	padding-top: 15%;
+}
+
+.titleBg {
+	padding-top: 30px;
+}
+
+#calibreGifs img.gif {
+	margin: 0 7%;
+	width: 86%;
+}
+
+#lgMobile .lgMobile4 {
+	width: 50%;
+	margin: 0 25% 6%;
+}
+
+.wrapPurple1 {
+	background: none repeat scroll 0 0 #706198;
+	padding: 130px 0 60px;
+	margin-top: -178px;
+}
+
+.wrapGrey11 {
+	margin-top: -430px;
+	padding: 440px 0 0;
+}
+
+#caseEgalite .egaliteCover {
+	margin: 2% 5%;
+	width: 90%;
+}
+
+#caseEgalite .egalitePostcard {
+	margin: 0 15%;
+	width: 70%;
+}
+
+.wrapGrey12 {
+	margin-top: -115px;
+	padding: 80px 0 148px; 
+}
+
+#caseLancome .lancomePhone {
+	width: 45%;
+	margin: 0 27.5% -4px;
+}
+
+#caseLancome .lancomeDetail {
+	width: 65%;
+	margin: 0 17.5%;
+}
+
+.wrapPink3 {
+	margin-top: -118px;
+	padding: 118px 0;
+}
+
+.wrapGrey15 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -148px;
+	padding: 40px 0;
+}
+
+.wrapGrey16 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -116px;
+	padding: 80px 0 50px;;
+}
+
+.wrapGrey18 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -350px;
+	padding: 260px 0 80px;
+}
+}
+
+@media screen and (max-width: 480px) {
+header[role="banner"] {
+	text-align: center;
+	padding: 0 0 5px 0;
+	background: #fff;
+}
+
+.logo {
+	display: block;
+	float: none;
+	margin: 12px auto 10px;
+}
+
+#home .logoDesc {
+	display: block;
+	float: none;
+	margin: 8px auto 10px;
+	padding-left: 0;
+}
+
+#home .logoDesc li {
+	display: block;
+	font-size: 100%;
+}
+
+#work .logoDesc {
+	display: block;
+	float: none;
+	margin: 8px auto 10px;
+	padding-left: 0;
+}
+
+#work .logoDesc li {
+	display: block;
+	font-size: 100%;
+}
+
+header[role="banner"] ul {
+	display: block;
+	float: none;
+	margin: 0 auto;
+	overflow: hidden;
+	font-size: 105%;
+}
+
+header[role="banner"] li {
+	display: inline-block;
+	float: none;
+	margin: 12px 40px 16px;
+}
+
+header[role="banner"] .portfolioLink {
+	margin: 20px 0 10px;
+	width: 38%;
+}
+
+header[role="banner"] .aboutLink {
+	margin: 20px 0 10px;
+	width: 38%;
+}
+
+#cases {
+	padding: 0 0 40px;
+}
+
+#cases a strong {
+	color: #928452;
+	display: block;
+	margin-top: 82%;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: .85em;
+	font-weight: 500;
+	letter-spacing: .2em;
+	line-height: 150%;
+}
+
+#cases a span {
+	color: #666666;
+	display: block;
+	font-style: oblique;
+	letter-spacing: .1em;
+	font-size: .8em;
+}
+
+footer[role="footer"] {
+	padding: 25px 0;
+}
+
+/* WORK STYLES */
+
+/*.title figure {
+	margin: 10px 33% 0;
+	overflow: hidden;
+}*/
+
+.titleBg {
+	padding-top: 10px;
+}
+
+.titleBg h1 {
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	color: #fff;
+	font-family: "ProximaNova-Light", Arial, Helvetica, sans-serif;
+	font-size: 3em;
+	font-weight: normal;
+	line-height: 120%;
+	text-transform: uppercase;
+	letter-spacing: .02em;
+	padding: 0 5%;
+}
+
+.negativeMargin {
+	margin-bottom: -58px;
+}
+
+.wrapTop {
+	padding-top: 15%;
+}
+
+#caseTrihonda .wrapWhite {
+	padding-top: 16%;
+}
+
+.wrapCaseInfo {
+	padding: 15px 0;
+}
+
+#caseInfo .span2 {
+	padding: 20px 0;
+	width: 100%;
+}
+
+#caseNav .span3 {
+	font-size: 1em;
+}
+
+#case h2 {
+	font-size: 1.5em;
+}
+
+#case p {
+	font-size: 1.3em;
+	padding-bottom: 10px;
+}
+
+#case .calibreProfile {
+	width: 40%;
+	margin-right: 30%;
+	margin-left: 30%;
+}
+
+.videoThumbs {
+	display: none;
+}
+
+.videoThumbs2 {
+	display: none;
+}
+
+.videoThumbs3 {
+	display: block;
+	padding: 10px 0 0;
+}
+
+.videoThumbs3 {
+	width: 93.5935936%;
+	margin: 0 auto;
+	padding: 20px 0 30px;
+}
+
+a.videoLink {
+	opacity: 0.8;
+	-webkit-opacity: 0.8;
+}
+
+#caseCalibre .videoThumbs3 p {
+	font-family: "ProximaNova-Regular", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-size: .9em;
+	line-height: 150%;
+	padding: 8px 0;
+}
+
+#caseCalibre .videoThumbs3 img {
+	display: block;
+	height: auto;
+	position: relative;
+	width: 100%;
+	border-radius: 2px;
+	padding-bottom: 8px;
+}
+
+#caseCalibre .span7 {
+	float: left;
+	width: 46%;
+	margin: 2%;
+}
+
+#caseCalibre .span1 {
+	float: left;
+	width: 96%;
+	margin: 2%;
+}
+
+.wrapGrey4 {
+	padding-top: 140px;
+}
+
+#calibreGifs img.forbesLogo {
+	width: 34%;
+	margin: 0 33%;
+}
+
+#calibreGifs img.wsjLogo {
+	padding-top: 50px;
+	width: 22%;
+	margin: 0 39%;
+}
+
+#calibreGifs img.gif {
+	padding-top: 10px;
+}
+
+#calibreGifs {
+	padding-bottom: 50px;
+}
+
+#caseTrihonda .negativeMargin {
+	margin-bottom: -85px;
+}
+
+#caseTrihonda .title figure {
+	margin: 20px 20% 30px;
+	overflow: hidden;
+}
+
+#trihondaMobile .span3 {
+	margin: 0 27%;
+	padding: 10% 0;
+	width: 46%;
+}
+
+#trihondaBranding .typeface img {
+	width: 70%;
+	margin: 5% 20% 5% 10%;
+	padding-top: 50px;
+}
+
+#trihondaBranding .color img {
+	width: 90%;
+	margin: 5%;
+}
+
+.wrapGrey6 {
+	margin-top: -118px;
+}
+
+#caseTrihonda .trihondaScreens {
+	padding-top: 30px;
+}
+
+#lgMobile .lgMobile1 {
+	width: 50%;
+	margin: 12% 25%;
+}
+
+#lgMobile .lgMobile2 {
+	width: 50%;
+	padding: 4% 25%;
+}
+
+#lgMobile .lgMobile2:nth-child(2) {
+	padding: 11% 25% 4%;
+}
+
+#lgMobile .lgMobile2:nth-child(4) {
+	padding: 4% 25% 11%;
+}
+
+#lgMobile .lgMobile4 {
+	width: 60%;
+	margin: 4% 20% 8%;
+}
+
+.wrapGrey9 {
+	margin-top: -14px;
+}
+
+.wrapGrey10 {
+	margin-top: -70px;
+	padding: 100px 0 60px;
+}
+
+#caseCartier .wrapGrey9 p {
+	padding: 9% 5% 8%;
+}
+
+#cartierEmails .span6 {
+	width: 48%;
+	margin: 1% 1%;
+	float: left;
+	display: block;
+	box-shadow: 0 1px 2px #999;
+}
+
+#cartierEmails .cartierEcommerce {
+	margin-top: 1%;
+}
+
+#caseFruitshoot .span1 {
+	width: 30%;
+	margin: 12% 35% 5%;
+}
+
+.wrapPurple1 {
+	background: none repeat scroll 0 0 #706198;
+	padding: 80px 0 60px;
+	margin-top: -148px;
+}
+
+.wrapPurple2 {
+	background: none repeat scroll 0 0 #473a65;
+	padding: 70px 0 30px;
+	margin-top: -115px;
+}
+
+.wrapGrey11 {
+	margin-top: -300px;
+	padding: 270px 0 0;
+}
+
+#caseEgalite .egalitePostcard {
+	margin: 0 10%;
+	width: 80%;
+}
+
+#caseEgalite .egaliteTshirt img {
+	padding-bottom: 20%;
+	margin-right: 5%;
+	margin-left: 5%;
+	width: 90%;
+}
+
+.wrapGrey12 {
+	margin-top: -105px;
+	padding: 50px 0 158px; 
+}
+
+.wrapGrey13 {
+	margin-top: -180px;
+	padding: 40px 0;
+	background: none repeat scroll 0 0 #ececea;
+}
+
+.wrapGrey14 {
+	margin-top: -135px;
+	padding: 110px 0 132px; 
+}
+
+.wrapRed {
+	margin-top: -200px;
+	padding: 120px 0 0;
+}
+
+#caseLancome .lancomePhone {
+	width: 45%;
+	margin: 0 27.5% -4px;
+}
+
+#caseLancome .lancomeDetail {
+	width: 65%;
+	margin: 0 17.5%;
+}
+
+.wrapPink3 {
+	background: none repeat scroll 0 0 #c22979;
+	margin-top: -100px;
+	padding: 78px 0 132px;
+}
+
+#casePuffs .puffsTissues1 img {
+	margin: 0 5%;
+	width: 90%;
+	padding-bottom: 12%;
+	padding-top: 3%;
+}
+
+.wrapGrey15 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -148px;
+	padding: 10px 0 30px;
+}
+
+#puffsMobile .puffsMobile1 {
+	width: 50%;
+	margin: 12% 25%;
+}
+
+#puffsMobile .puffsMobile3 {
+	width: 60%;
+	margin: 12% 20%;
+}
+
+#puffsMobile .puffsTissues2 {
+	width: 60%;
+	margin: 6% 20% 10%;
+}
+
+#caseWhil .wrapTop {
+	padding: 52px 0 80px;
+}
+
+.wrapGrey16 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -108px;
+	padding: 50px 0 30px;;
+}
+
+#caseLgsupport .title figure {
+	margin: 20px 30% 15px;
+	overflow: hidden;
+}
+
+#caseLgsupport .wrapTop {
+	padding: 70px 0 80px;
+}
+
+.wrapGrey17 {
+	margin-top: -176px;
+	padding: 130px 0 60px;
+}
+
+.wrapGrey18 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -240px;
+	padding: 150px 0 30px;
+}
+
+#caseHokusai .title figure {
+	margin: 22px 26% 0px;
+}
+
+/* ABOUT STYLES */
+
+#caseAbout .rightSide h1 {
+	font-size: 2.2em;
+}
+
+#caseAbout .rightSide p {
+	font-size: 1.3em;
+}
+
+#caseAbout .profilePhoto2 img {
+	width: 50%;
+	margin: 0 25%;
+	padding: 20px 0;
+}
+
+#caseAbout .aboutInfo2 h2 {
+	font-size: 1.6em;
+	padding-top: 15%;
+}
+
+#caseAbout .rightSide {
+	width: 80%;
+	margin: 0 10%;
+}
+
+#caseAbout .aboutSocial {
+	width: 80%;
+	padding-top: 15%;
+}
+
+}
+
+@media screen and (max-width: 380px) {
+.span3 {
+	width: 50%;
+	float: left;
+}
+
+.wrapTop {
+	padding-top: 22%;
+}
+
+#caseTrihonda .wrapWhite {
+	padding-top: 20%;
+}
+
+.wrapBeige {
+	margin-top: -100px;
+}
+
+.wrapPurple1 {
+	background: none repeat scroll 0 0 #706198;
+	padding: 60px 0 60px;
+	margin-top: -129px;
+}
+
+.wrapPurple2 {
+	background: none repeat scroll 0 0 #473a65;
+	padding: 50px 0 30px;
+	margin-top: -100px;
+}
+
+#caseEgalite .title figure {
+	margin: 40px 14% 0 20%;
+}
+
+.wrapGrey12 {
+	margin-top: -98px;
+	padding: 40px 0 166px; 
+}
+
+#caseProgresso .title figure {
+	margin: 6px 27.7% 0;
+}
+
+#caseLancome .lancomePhone {
+	width: 55%;
+	margin: 0 22.5% -4px;
+}
+
+#caseLancome .lancomeDetail {
+	width: 80%;
+	margin: 0 10%;
+}
+
+.wrapPink3 {
+	background: none repeat scroll 0 0 #c22979;
+	margin-top: -100px;
+	padding: 58px 0 132px;
+}
+
+#caseWhil .wrapTop {
+	padding: 42px 0 80px;
+}
+
+.wrapGrey16 {
+	background: none repeat scroll 0 0 #ececea;
+	margin-top: -98px;
+	padding: 35px 0 40px;;
+}
+
+#caseLgsupport .title figure {
+	margin: 10px 26% 25px;
+	overflow: hidden;
+}
+
+#caseLgsupport .wrapTop {
+	padding: 50px 0 80px;
+}
+
+.wrapGrey17 {
+	margin-top: -140px;
+	padding: 80px 0 50px;
+}
+
+/* ABOUT STYLES */
+
+#caseAbout .rightSide h1 {
+	font-size: 1.8em;
+	margin-bottom: 8%;
+}
+
+#caseAbout .rightSide p {
+	text-align: center;
+}
+
+#caseAbout .aboutInfo2 p {
+	text-align: center;
+}
+
+#caseAbout .aboutSocial {
+	width: 90%;
+}
+
+#caseAbout .aboutSocial img {
+	margin: 0 5.1%;
+	width: 22%;
+}
+}

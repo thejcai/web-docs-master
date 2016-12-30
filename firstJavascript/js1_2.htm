@@ -1,0 +1,36 @@
+<html><head><title>JS 1</title></head>
+	<body onload="announce()" style="border: 1px solid green">
+		<!--Javascript -->
+		<script type="text/javascript">
+		function announce(){
+			alert("Hi mom");
+			var elemp = document.getElementById("par1");
+
+			//One example of changing the element
+			elemp.style.border = "3px solid red";
+		}
+		function showit(){
+			alert("I'm in");
+			var elemText = document.getElementById("mytext");
+			alert("You entered: " + elemText.value);
+		}
+		</script>
+		<p id=par1>Hi dad</p><p>Hi<span id=brospan>Bro</span><p>
+		
+		<!-- Input and button. Pressing button with mouse. Other ways: Pressing enter, 
+		     Could also Tab, then press Space. -->
+		<input type=text name=mytext id=mytext onKeyPress="showit()">
+		<button type=button accessKey=s onclick="showit()" ><u>S</u>how me </button>
+
+		<!-- wondow.setTimeout("announce()", 5000); Sits on windows, 5 seconds,
+		     1st arg gets called, put in quotes. 2nd arg in ms.
+		     Function: 5 seconds from now, do this, but continues on. 
+		     
+		     Note: Javascript is single threaded. Thus, this function means 
+		     execute at the next time after 5 seconds when it can be executed.
+		     If there is an infinite loop, will not come after 5 seconds. -->
+		
+		
+
+	</body>
+</html>

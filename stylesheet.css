@@ -1,0 +1,40 @@
+h1{
+	font-family:'Palatino Linotype';
+}
+center{
+	background-color: #6699FF;
+}
+html{
+	background: url( http://www.hdwalley.com/wp-content/uploads/2015/10/landscape_wallpaper_elegant_background_2026_high_definition.jpg  ) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+body{
+	padding-left: 15em;
+}
+ul.navbar{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 2em;
+	left: 1em;
+	width: 12em;
+}
+ul.navbar li{
+	background-color: #B2CCFF;
+	margin: 0.5em 0;
+	padding: 0.3em;
+	border-right: 1em solid black;
+}
+ul.navbar a{
+	text-decoration: none;
+}
+a:link{
+	color: blue;
+}
+a:visited{
+	color: purple
+}

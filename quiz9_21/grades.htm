@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Practice Quiz!</title>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css">
+	</head>
+	<body>
+		<script type="text/javascript">
+			grade = ["f", "d", "c", "b", "a"];
+			function update(){
+				var str = document.getElementById("q1").value;	
+				//alert(grade.indexOf(str));
+				var num1 = grade.indexOf(str);
+				str = document.getElementById("q2").value;
+				var num2 = grade.indexOf(str);
+				var avg = (num1 + num2)/2;
+				//alert(avg);
+				document.getElementById("calcGPA").innerHTML = avg;
+			}
+		</script>
+		<table id="grades" border="1">
+			<tr>
+				<td>GPA</td>
+				<td id="calcGPA">4</td>
+			</tr>
+			<tr>
+				<td>Quarter 1</td>
+				<td>
+					<select id="q1" onchange="update()">
+						<option value="a">A</option>
+						<option value="b">B</option>
+						<option value="c">C</option>
+						<option value="d">D</option>
+						<option value="f">F</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Quarter 2</td>
+				<td>
+					<select id="q2" onchange="update()">
+						<option value="a">A</option>
+                                                <option value="b">B</option>
+                                                <option value="c">C</option>
+                                                <option value="d">D</option>
+                                                <option value="f">F</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

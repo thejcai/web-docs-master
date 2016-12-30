@@ -1,0 +1,186 @@
+<html>
+	<head>
+		<title>Name the 50 US States!</title>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css">
+	</head>
+	<body>
+		<script type="text/javascript">
+			//var states = ["alabama", "alaska"];	
+			var done = -1;
+			var correct = [];
+			var states = ["alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine", "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico", "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee", "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin", "wyoming" ];
+			
+			var abbr = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
+
+			function startTimer(duration, display){
+				var timer = duration, minutes, seconds;
+				setInterval(function (){
+					minutes = parseInt(timer / 60, 10);
+					seconds = parseInt(timer % 60, 10);
+
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					
+					display.textContent = "Time Remaining: " + minutes + ":" + seconds;
+
+					if (--timer < 0){
+						fillInRest();
+						timer = duration;
+						display.style.visibility="hidden";
+						document.querySelector("#toberemoved").style.visibility = "hidden";
+						document.querySelector("#toberemoved2").style.visibility = "hidden";
+						if(done == -1){
+							done = 1;
+							announce();
+						}
+					}
+
+					if(done == 0){
+						finalmin = minutes;
+						finalsec = seconds;
+					}
+
+				}, 1000);
+			}
+
+			function setUp(){
+				document.querySelector("#toberemoved").style.visibility = "visible";
+				document.querySelector("#toberemoved2").style.visibility = "visible";
+				document.getElementById("sbuttondiv").innerHTML = "";
+				document.getElementById("correctstatesid").innerHTML = "Correct States: ";
+				document.getElementById("statetext").focus();
+				var liList = "";
+				for(i = 0; i < 50; i++){
+					if(i == 0){
+						liList = liList + "<tr>";
+					}
+					if(i == 10 || i == 20 || i == 30 || i == 40){
+						liList = liList + "</tr><tr>";
+					}
+					liList = liList + "<td> ............ </td>";
+				}
+				document.getElementById("statelist").innerHTML = "<table>" + liList + "</tr></table>";
+
+				var fiveMinutes = 60*5, display = document.querySelector("#time");
+				//var myVar = window.setTimeout(announce(), 300000);
+				startTimer(fiveMinutes, display);
+			}
+
+			function announce(){
+				alert("Time is out! Refresh to try again.");
+			}
+			function answer(){
+				var elemText = document.getElementById("statetext");
+				//alert("So far: " + elemText.value);
+				var indexAbbr = abbr.indexOf(elemText.value);
+				var indexState = states.indexOf(elemText.value.toLowerCase());
+				if(indexAbbr != -1 || indexState != -1){
+					//alert("Correct!");
+					if(indexAbbr != -1){
+						correct.push(states[indexAbbr]);
+						states.splice(indexAbbr, 1);
+						abbr.splice(indexAbbr, 1);
+					}
+					else{
+						correct.push(states[indexState]);
+						states.splice(indexState, 1);
+						abbr.splice(indexState, 1);
+					}
+					document.getElementById("statetext").value = '';
+					updateDisplay();
+				}
+				else{
+					//alert("Not correct");
+				}
+				if(states.length == 0){
+					document.querySelector("#time").style.visibility = "hidden";
+					//window.clearTimeout(myVar);
+					document.querySelector("#toberemoved").style.visibility = "hidden";
+					document.querySelector("#toberemoved2").style.visibility = "hidden";
+					alert("Congratulations! You got all 50! " + document.querySelector("#time").innerHTML);
+				}
+			}
+			function updateDisplay(){
+				var startlist = "<table>";
+				var endlist = "</tr></table>";
+				var liList = "";
+				for(i = 0; i < 50; i++){
+					if(i == 0){
+						liList = liList + "<tr>";
+					}
+					if(i == 10 || i == 20 || i == 30 || i == 40){
+						liList = liList + "</tr><tr>";
+					}
+					if(i < correct.length){
+						var outputState = correct[i];
+						var firstChar = outputState.charAt(0) + "";
+						firstChar = firstChar.toUpperCase();
+						outputState = firstChar + outputState.slice(1, outputState.length);
+						liList = liList + "<td style='background-color:#00ff00'>" + String(i+1) + ". " +  correct[i] + "</td>";
+					}
+					else{
+						liList = liList + "<td> ............ </td>";
+					}
+				}
+				document.getElementById("statelist").innerHTML = startlist + liList + endlist;
+			}
+
+
+
+			function fillInRest(){
+				var startlist = "<table>";
+				var endlist = "</tr></table>";
+				var liList = "";
+				for(i = 0; i < 50; i++){
+					if(i == 0){
+						liList = liList + "<tr>";
+					}
+					if(i == 10 || i == 20 || i == 30 || i == 40){
+						liList = liList + "</tr><tr>";
+					}
+					if(i < correct.length){
+						var outputState = correct[i];
+						var firstChar = outputState.charAt(0) + "";
+						firstChar = firstChar.toUpperCase();
+						outputState = firstChar + outputState.slice(1, outputState.length);
+						liList = liList + "<td style='background-color:#00ff00'>" + String(i+1) + ". " + correct[i] + "</td>";
+					}
+					else{
+						liList = liList + "<td style='background-color:#ff0000'>" + String(i+1) + ". " + states[0] + "</td>";
+						states.splice(0, 1);
+					}
+				}
+				document.getElementById("statelist").innerHTML = startlist + liList + endlist;
+			}
+
+		</script>
+		<center style="border: 1px solid blue" id = "topOfPage">
+			<br>
+			<img src="http://i.huffpost.com/gen/1649894/images/o-AMERICAN-FLAG-facebook.jpg" height="250" width="500">
+			<h1>Can you name the 50 US states in 5 minutes?</h1>
+		</center>
+		
+		<center id = "bodyOfPage">
+			<h3>Directions</h3>
+			<p>Enter as many states of the United States of America as you can. Try to get all 50 in 5 minutes!</p>
+			<div id="sbuttondiv">
+				<button type=button accessKey=s id="sbutton" onclick="setUp()">Click to <u>S</u>tart!</button>
+			</div>
+			<br>
+			<!--<div id="txt">00:00:00</div>-->
+			<div id = "time"></div>
+			<br>
+			<br>
+			<div id="toberemoved" style="visibility: hidden">
+				Enter a state:
+				<input type=text name=statetext id="statetext" oninput="answer()">
+				<button type=button accessKey=e id="ebutton" onclick="answer()"><u>E</u>nter</button>
+			</div>
+			<br>
+			<p id="correctstatesid"></p>
+			<table id=statelist border="1"></table>
+			<br><br><br><br><br>
+			<p id="toberemoved2" style="visibility: hidden">Code for the timer from <a href="http://codepen.io/ThatGuySam/pen/CytDA">here</a></p>
+		</center>
+	</body>
+</html>

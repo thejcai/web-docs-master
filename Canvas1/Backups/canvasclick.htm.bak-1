@@ -1,0 +1,67 @@
+<!-- START OF PROGRAM -->
+
+<html>
+	<head>
+		<title>Canvas Click Lab</title>
+		<style type="text/css">
+			html{
+				background-color: #CCFFCC;
+			}
+
+			canvas{
+				background-color: white;
+			}
+
+			h1{
+				font-family: 'Iceberg';
+				color: #666699;
+				font-size: 72px;
+			}
+		</style>
+		<script type="text/javascript">
+			var canvas;
+			var context;
+			
+			function init(){
+				canvas = document.getElementById("myCanvas");
+				context = canvas.getContext("2d");
+				canvas.addEventListener("click", drawTheRect, false);
+				document.getElementById("clear").addEventListener("click", btnfunc, false);
+				function btnfunc(){
+					context.clearRect(0, 0, canvas.width, canvas.height);
+				}
+			}
+			
+			//function from HTML5 Canvas Tutorials, url: http://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
+			function getMousePos(event){
+				var rect = canvas.getBoundingClientRect();
+				return{
+					x: event.clientX - rect.left,
+					y: event.clientY - rect.top
+				};
+			}
+			HTMLCanvasElement.prototype.getMousePos = getMousePos;
+			
+			function drawTheRect(){
+				var pos = canvas.getMousePos(event);
+				var posX = pos.x;
+				var posY = pos.y;
+				//alert(posX + " " + posY);
+
+				//context.fillRect(posX, posY, 5, 5);
+				context.beginPath();
+				context.arc(posX, posY, 4, 0, 2*Math.PI, true);
+				context.fill();
+			}
+
+		</script>
+	</head>
+	<body onload=init()>
+		<center>
+			<h1> <em>Your Masterpiece<em> </h1>
+			<canvas id="myCanvas" style="border:1px solid black" width="1000px" height="500px"></canvas>
+			<br>
+			<button type=button accessKey=c id="clear"><u>C</u>lear Canvas</button>
+		</center>
+	</body>
+</html>

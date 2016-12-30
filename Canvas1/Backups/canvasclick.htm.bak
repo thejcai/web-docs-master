@@ -1,0 +1,56 @@
+<!-- START OF PROGRAM -->
+
+<html>
+	<head>
+		<title>Canvas Click Lab</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+			var canvas;
+			var context;
+			
+			function init(){
+				canvas = document.getElementById("myCanvas");
+				context = canvas.getContext("2d");
+				canvas.addEventListener("click", drawTheRect, false);
+			}
+			
+			//function from StackOverflow user Ryan Artecona
+			//url: http://stackoverflow.com/questions/9880279/how-do-i-add-a-simple-onclick-event-handler-to-a-canvas-element
+			function relMouseCoords(event){
+				var totalOffsetX = 0;
+				var totalOffsetY = 0;
+				var canvasX = 0;
+				var canvasY = 0;
+				var currentElement = this;
+
+				do{
+					totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+					totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+				}
+				while(currentElement = currentElement.offsetParent)
+
+				canvasX = event.pageX - totalOffsetX;
+				canvasY = event.pageY - totalOffsetY;
+
+				return {x:canvasX, y:canvasY}
+			}
+			HTMLCanvasElement.prototype.relMouseCoords = relMouseCoords;
+
+			function drawTheRect(){
+				var pos = canvas.relMouseCoords(event);
+				var posX = pos.x;
+				var posY = pos.y;
+				//alert(posX + " " + posY);
+
+				context.fillRect(posX, posY, 5, 5);
+			}
+
+		</script>
+	</head>
+	<body onload=init()>
+		<center>
+			<canvas id="myCanvas" style="border:1px solid black" width="1000px" height="500px"></canvas>
+		</center>
+	</body>
+</html>

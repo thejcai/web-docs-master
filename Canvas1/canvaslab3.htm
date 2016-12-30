@@ -1,0 +1,359 @@
+<!-- START OF PROGRAM -->
+
+<html>
+	<head>
+		<title>Canvas Lab</title>
+		<style type="text/css">
+			html{
+				background-color: #CCFFCC;
+			}
+
+			canvas{
+				background-color: white;
+			}
+
+			h1{
+				font-family: 'Iceberg';
+				color: #666699;
+				font-size: 72px;
+			}
+		</style>
+		<script type="text/javascript">
+			var canvas;
+			var context;
+			var x1;
+			var y1;
+			var x2;
+			var y2;
+			var dotsX = [];
+			var dotsY = [];
+			var dotColor = [];
+			var isMouseDown = false;
+			var drawing = false;
+			var movingdot = false;
+			var indexHitDot = 0;
+			//var answered = false;
+			var keepborder = true;
+			var ctrlpressed = false;
+			var toggle = false;
+			var dotsize = 15;
+			var farthestdistancetraveled; 
+			
+			function init(){
+				canvas = document.getElementById("myCanvas");
+				context = canvas.getContext("2d");
+				canvas.addEventListener("mousedown", setUp, false);
+				canvas.addEventListener("mousemove", draw, false);
+				canvas.addEventListener("mouseup", execute, false);
+				document.getElementById("clear").addEventListener("click", btnfunc, false);
+				function btnfunc(){
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					dotsX = [];
+					dotsY = [];
+					dotColor = [];
+					isMouseDown = false;
+					drawing = false;
+				}
+				document.onkeydown = function(event){
+					if(event.keyCode == 27){
+						executeEscapeKey();
+					}
+					if(event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40){
+						fineTune(event.keyCode);
+					}
+				};
+			}
+
+			function fineTune(direction){
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				for(var i = 0; i < dotColor.length; i++){
+					context.beginPath();
+					if(dotColor[i] == "#FF0000"){
+						if(direction == 37){
+							dotsX[i]--;
+						}
+						else if(direction == 38){
+							dotsY[i]--;
+						}
+						else if(direction == 39){
+							dotsX[i]++;
+						}
+						else{
+							dotsY[i]++;
+						}
+					}
+					else{
+					}
+					context.fillStyle = dotColor[i];
+					context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+					context.fill();
+				}
+			}
+
+			function executeEscapeKey(){
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				for(var i = 0; i < dotColor.length; i++){
+					context.beginPath();
+					dotColor[i] = "#000000";
+					context.fillStyle = dotColor[i];
+					context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+					context.fill();
+				}
+			}
+			
+			//getMousePos function from HTML5 Canvas Tutorials, url: http://www.html5canvastutorials.com/advanced/html5-canvas-mouse-coordinates/
+			function getMousePos(event){
+				var rect = canvas.getBoundingClientRect();
+				return{
+					x: event.clientX - rect.left,
+					y: event.clientY - rect.top
+				};
+			}
+			HTMLCanvasElement.prototype.getMousePos = getMousePos;
+			
+			function setUp(event){
+				if(event.ctrlKey){
+					ctrlpressed = true;
+					//alert("ctr key pressed during click");
+				}
+				var pos = canvas.getMousePos(event);
+				var posX = pos.x;
+				var posY = pos.y;
+				x1 = parseInt(posX);
+				y1 = parseInt(posY);
+				isMouseDown = true;
+				if(isThereHit()){
+					if(ctrlpressed){
+						toggle = true;
+					}
+					else{
+						movingdot = true;
+						indexHitDot = findHitOnTop();
+					}
+					//alert(indexHitDot);
+				}
+			}
+
+			function isThereHit(){
+				for(var i = 0; i < dotColor.length; i++){
+					var tempDistance = Math.sqrt((dotsX[i] - x1)*(dotsX[i]-x1) + (dotsY[i] - y1)*(dotsY[i]-y1));
+					if(tempDistance <= dotsize){
+						return true;
+					}
+				}
+				return false;
+			}
+
+			function findHitOnTop(){
+				var indexOfHits = [];
+				for(var i = 0; i < dotColor.length; i++){
+					var tempDistance = Math.sqrt((dotsX[i]-x1)*(dotsX[i]-x1) + (dotsY[i] - y1)*(dotsY[i] - y1));
+					if(tempDistance <= dotsize){
+						indexOfHits.push(i);
+					}
+				}
+				return indexOfHits[indexOfHits.length - 1];
+			}
+
+			function draw(){
+				if(isMouseDown && !movingdot){
+					drawing = true;
+					canvas.style.cursor = "crosshair";
+					var pos2 = canvas.getMousePos(event);
+					var posX = pos2.x;
+					var posY = pos2.y;
+					x2 = parseInt(posX);
+					y2 = parseInt(posY);
+					if(Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)) > farthestdistancetraveled){
+						farthestdistancetraveled = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+					}
+					console.log(farthestdistancetraveled);
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					context.beginPath();
+					context.setLineDash([5]);
+					context.rect(x1, y1, x2-x1, y2-y1);
+					context.stroke();
+
+					for(var i = 0; i < dotColor.length; i++){
+						context.beginPath();
+						context.fillStyle = dotColor[i];
+						context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+						context.fill();
+					}
+				}
+				else if(isMouseDown && movingdot){
+					var pos2 = canvas.getMousePos(event);
+					var posX = pos2.x;
+					var posY = pos2.y;
+					var startMovingDotX = dotsX[indexHitDot];
+					var startMovingDotY = dotsY[indexHitDot];
+					var movePosX = posX - startMovingDotX;
+					var movePosY = posY - startMovingDotY;
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					if(dotColor[indexHitDot] == "#000000"){
+						for(var i = 0; i < dotColor.length; i++){
+							context.beginPath();
+							if(i == indexHitDot){
+								dotsX[i] = posX;
+								dotsY[i] = posY;
+								dotColor[i] = "#FF0000";
+							}
+							else{
+								dotColor[i] = "#000000";
+							}
+							context.fillStyle = dotColor[i];
+							context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+							context.fill();
+						}
+					}
+					else{
+						for(var i = 0; i < dotColor.length; i++){
+							context.beginPath();
+							if(i == indexHitDot){
+								dotsX[i] = posX;
+								dotsY[i] = posY;
+								dotColor[i] = "#FF0000";
+							}
+							else if(dotColor[i] == "#FF0000"){
+								var newXRedDot = dotsX[i] + movePosX;
+								var newYRedDot = dotsY[i] + movePosY;
+								dotsX[i] = newXRedDot;
+								dotsY[i] = newYRedDot;
+							}
+							else{
+							}
+							context.fillStyle = dotColor[i];
+							context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+							context.fill();
+						}
+					}
+				
+				}
+				else{
+				}
+			}
+
+			function execute(){
+				console.log("bounds: " + x1 + " " + y1 + " " + x2 + " " + y2);
+				if(movingdot){
+					movingdot = false;
+				}
+				else if(drawing == false || farthestdistancetraveled < 5){
+					if(ctrlpressed == false){
+						context.clearRect(0, 0, canvas.width, canvas.height);
+						for(var i = 0; i < dotColor.length; i++){
+							if(dotColor[i] == "#FF0000"){
+								dotColor[i] = "#000000";
+							}
+							context.beginPath();
+							context.fillStyle = dotColor[i];
+							context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+							context.fill();
+						}
+						context.beginPath();
+						context.fillStyle = "#FF0000";
+						context.arc(x1, y1, dotsize, 0, 2*Math.PI, true);
+						context.fill();
+						dotsX.push(x1);
+						dotsY.push(y1);
+						dotColor.push("#FF0000");
+					}
+					else{
+						ctrlpressed = false;
+						console.log("toggle: " + toggle);
+						if(toggle){
+							indexHitDot = findHitOnTop();
+							context.clearRect(0, 0, canvas.width, canvas.height);
+							for(var i = 0; i < dotColor.length; i++){
+								if(i == indexHitDot){
+									if(dotColor[i] == "#000000"){
+										dotColor[i] = "#FF0000";
+									}
+									else{
+										dotColor[i] = "#000000";
+									}
+								}
+								context.beginPath();
+								context.fillStyle = dotColor[i];
+								context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+								context.fill();
+							}
+						}
+						else{
+							context.beginPath();
+							context.fillStyle = "#FF0000";
+							context.arc(x1, y1, dotsize, 0, 2*Math.PI, true);
+							context.fill();
+							dotsX.push(x1);
+							dotsY.push(y1);
+							dotColor.push("#FF0000");
+						}
+					}
+				}
+				else{
+					drawing = false;
+					context.clearRect(0, 0, canvas.width, canvas.height);
+					for(var i = 0; i < dotColor.length; i++){
+						context.beginPath();
+						var lowerXBound, upperXBound, lowerYBound, upperYBound;
+						if(x1 >= x2){
+							upperXBound = x1 + dotsize;
+							lowerXBound = x2 - dotsize;
+						}
+						else{
+							upperXBound = x2 + dotsize;
+							lowerXBound = x1 - dotsize;
+						}
+						if(y1 >= y2){
+							upperYBound = y1 + dotsize;
+							lowerYBound = y2 - dotsize;
+						}
+						else{
+							upperYBound = y2 + dotsize;
+							lowerYBound = y1 - dotsize;
+						}
+
+						if(dotsX[i] < upperXBound && dotsX[i] > lowerXBound && dotsY[i] < upperYBound && dotsY[i] > lowerYBound){
+							console.log("(" + dotsX[i] + " " + dotsY[i] + ")");
+							console.log("inside");
+							if(dotColor[i] == "#000000"){
+								dotColor[i] = "#FF0000";
+								context.fillStyle = "#FF0000";
+							}
+							else{
+								context.fillStyle = dotColor[i];
+							}
+							context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+						}
+						else{
+							console.log("outside");
+							if(ctrlpressed){
+								context.fillStyle = dotColor[i];
+							}
+							else{
+								dotColor[i] = "#000000";
+								context.fillStyle = dotColor[i];
+							}
+							context.arc(dotsX[i], dotsY[i], dotsize, 0, 2*Math.PI, true);
+						}
+						context.fill();
+					}
+				}
+				isMouseDown = false;
+				ctrlpressed = false;
+				toggle = false;
+				farthestdistancetraveled = 0;
+				canvas.style.cursor = "default";
+				context.fillStyle = "black";
+			}
+		</script>
+	</head>
+	<body onload=init()>
+		<center>
+			<h1> <em>Your Masterpiece<em> </h1>
+			<canvas id="myCanvas" style="border:1px solid black" width="1000px" height="500px"></canvas>
+			<br><br>
+			<button type=button accessKey=c id="clear"><u>C</u>lear Canvas</button>
+		</center>
+	</body>
+</html>
